@@ -1,0 +1,27 @@
+{
+  "name": "cypress-github-action-example",
+  "version": "1.0.0",
+  "description": "Cypress GitHub Actions example",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open",
+    "test:ci": "cypress run --browser chrome --spec cypress/integration/examples/actions.spec.js",
+    "test:ci:dashboard": "cypress run --record --key ${DASHBOARD_KEY} --browser chrome --spec cypress/integration/examples/actions.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beemi/cypress-github-action-example.git"
+  },
+  "author": {
+    "email": "beemi.raja@gmail.com",
+    "name": "Raja Beemi"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beemi/cypress-github-action-example/issues"
+  },
+  "homepage": "https://github.com/beemi/cypress-github-action-example#readme",
+  "devDependencies": {
+    "cypress": "^6.6.0"
+  }
+}

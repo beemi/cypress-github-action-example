@@ -1,0 +1,21 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  cypress-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: install cypress
+        run: npm install
+
+      - name: Run cypress tests
+        run: npm run test:ci:dashboard
+        env:
+          DASHBOARD_KEY: ${{ secrets.DASHBOARD_KEY }}
