@@ -2,7 +2,7 @@ name: ci
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   cypress-test-dev:
     runs-on: ubuntu-20.04
