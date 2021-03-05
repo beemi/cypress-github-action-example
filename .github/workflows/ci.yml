@@ -1,0 +1,44 @@
+name: Sequentional workflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+  cypress-test-dev:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: install cypress
+        run: npm install
+      - name: Run cypress tests
+        run: npm run test:ci:dashboard
+        env:
+          DASHBOARD_KEY: ${{ secrets.DASHBOARD_KEY }}
+  cypress-test-stage:
+    needs:
+      - cypress-test-dev
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: install cypress
+        run: npm install
+      - name: Run cypress tests
+        run: npm run test:ci:dashboard
+        env:
+          DASHBOARD_KEY: ${{ secrets.DASHBOARD_KEY }}
+  cypress-test-prod:
+    needs:
+      - cypress-test-dev
+      - cypress-test-stage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: install cypress
+        run: npm install
+      - name: Run cypress tests
+        run: npm run test:ci:dashboard
+        env:
+          DASHBOARD_KEY: ${{ secrets.DASHBOARD_KEY }}
