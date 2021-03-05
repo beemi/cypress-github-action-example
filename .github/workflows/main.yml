@@ -1,4 +1,4 @@
-name: ci
+name: Main workflow - Dev, stage, prod tests
 on:
   push:
     branches:
