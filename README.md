@@ -5,6 +5,7 @@ Cypress Github action examples with http://automationpractice.com/index.php
 
 ![Alt text](docs/img.png)
 ![Alt text](docs/img_1.png)
+![Alt text](docs/img_3.png)
 ![Alt text](docs/img_2.png)
 
 ## Contact
